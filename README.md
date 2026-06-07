@@ -70,6 +70,14 @@ docker compose up -d
 ```
 *The Docker image bundles the orchestrator, the pre-built web frontend, and the full arsenal for zero-config deployment.*
 
+### 5. Android APK Deployment
+The mobile app is built using Expo. To generate a standalone APK:
+1.  Install EAS CLI: `npm install -g eas-cli`
+2.  Log in to your Expo account: `eas login`
+3.  Configure the project: `cd SpartanAI_Hexstrike_App && eas build:configure`
+4.  Build the APK: `npm run build:apk`
+*The repository includes a GitHub Action (`.github/workflows/android-build.yml`) that automates this process when a new version tag (e.g., `v1.0.1`) is pushed.*
+
 ---
 
 ## 🛡️ Sovereign Security Standards

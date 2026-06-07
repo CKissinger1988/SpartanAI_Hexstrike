@@ -1,0 +1,9 @@
+Package: hexstrike-nova
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: CKissinger1988 <ckissinger1988@gmail.com>
+Description: Hexstrike-N.O.V.A. Sovereign Offensive Platform
+ Integrated autonomous intelligence, red-team arsenal, and central orchestrator.
+ Provides a unified mobile-first interface for professional offensive operations.

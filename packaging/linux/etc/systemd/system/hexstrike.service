@@ -1,0 +1,14 @@
+[Unit]
+Description=Hexstrike Central Orchestrator
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/usr/share/hexstrike
+ExecStart=/usr/bin/python3 /usr/share/hexstrike/HexstrikeCentralAPI.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

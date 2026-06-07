@@ -1,0 +1,18 @@
+#!/bin/bash
+# Hexstrike-N.O.V.A. Post-Installation Script
+set -e
+
+echo "[*] Finalizing Hexstrike Sovereign Deployment..."
+
+# 1. Setup Permissions
+chown -R root:root /usr/share/hexstrike
+chmod +x /usr/bin/hexstrike-orchestrator
+
+# 2. Register Service
+systemctl daemon-reload
+systemctl enable hexstrike.service
+systemctl start hexstrike.service
+
+echo "[+] Sovereign Orchestrator Active at http://127.0.0.1:8000"
+echo "[+] Mission Ready."
+exit 0

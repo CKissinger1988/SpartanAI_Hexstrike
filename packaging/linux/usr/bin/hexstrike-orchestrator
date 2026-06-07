@@ -1,0 +1,4 @@
+#!/bin/bash
+# Wrapper for Hexstrike Orchestrator
+cd /usr/share/hexstrike
+python3 HexstrikeCentralAPI.py "$@"

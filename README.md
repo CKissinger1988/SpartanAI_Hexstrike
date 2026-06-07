@@ -63,6 +63,13 @@ python HexstrikeCentralAPI.py
 ```
 *The orchestrator will automatically provision the Gemma 4 model and modernize the arsenal on startup.*
 
+### 4. Docker Deployment (Universal)
+The platform is available as a containerized offensive node:
+```bash
+docker compose up -d
+```
+*The Docker image bundles the orchestrator, the pre-built web frontend, and the full arsenal for zero-config deployment.*
+
 ---
 
 ## 🛡️ Sovereign Security Standards

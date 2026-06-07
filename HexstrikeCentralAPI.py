@@ -6,12 +6,32 @@ import os
 import re
 import json
 
+from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
+
 app = FastAPI(title="Hexstrike Central Orchestrator")
 
-# Paths
-ARSENAL_ROOT = os.path.expanduser("~/arsenal")
+# Enable CORS for cross-platform synchronization
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Paths - Adjusted for both local and container environments
+ARSENAL_ROOT = os.environ.get("ARSENAL_ROOT", os.path.expanduser("~/arsenal"))
 MODELS_ROOT = os.path.join(ARSENAL_ROOT, "models")
 os.makedirs(MODELS_ROOT, exist_ok=True)
+
+# ... (rest of the patterns and models)
+
+# Serve Web Frontend (if dist directory exists)
+WEB_DIST_PATH = os.path.join(os.path.dirname(__file__), "SpartanAI_Hexstrike_App/dist")
+if os.path.exists(WEB_DIST_PATH):
+    app.mount("/", StaticFiles(directory=WEB_DIST_PATH, html=True), name="web")
 
 MODERNIZATION_PATTERNS = {
     r"SIMULATION_MODE\s*=\s*True": "SIMULATION_MODE = False",

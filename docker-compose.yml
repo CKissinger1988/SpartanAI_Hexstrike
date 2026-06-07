@@ -1,0 +1,13 @@
+services:
+  hexstrike:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - ARSENAL_ROOT=/usr/share/hexstrike/arsenal
+    volumes:
+      - hexstrike-arsenal:/usr/share/hexstrike/arsenal
+    restart: always
+
+volumes:
+  hexstrike-arsenal:
